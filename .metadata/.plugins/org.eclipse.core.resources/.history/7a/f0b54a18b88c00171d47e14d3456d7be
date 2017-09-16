@@ -1,0 +1,55 @@
+package back11055;
+
+import java.util.*;
+
+public class Main {
+
+	static Scanner in = new Scanner(System.in);
+	static int N = in.nextInt();
+	static int A[] = new int[N+1];
+	static int dp[] = new int[N+1];
+
+	public static void main(String args[]){
+		for(int i=1;i<=N;i++){
+			A[i] = in.nextInt();
+		}
+		
+		
+		
+		for(int i=1;i<=N;i++){
+			int count =0;
+			int last = -1;
+			dp[i] = A[i];
+			for(int j=1;j<=i;j++){
+				
+				if( A[j] < A[i] && count == 0){
+					dp[i] = dp[i] + A[j];
+					last = A[j];
+					count++;
+				}
+				else if( A[j] < A[i] && last < A[j]){
+					dp[i] = dp[i] + A[j];
+					last = A[j];
+				}
+				
+			}
+			
+		}
+		
+		int max = -1;
+		for(int i=1;i<=N;i++){
+			if(max<dp[i]){
+				max = dp[i];
+			}
+			System.out.println(dp[i]);
+		}
+
+
+		
+
+		
+		System.out.println(max);
+		
+	}
+	
+}

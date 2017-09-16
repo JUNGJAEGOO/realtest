@@ -1,0 +1,61 @@
+import java.util.*;
+
+
+public class Main {
+
+	static int DP[][];
+	static int maxsize = 0;
+	
+	public static void main(String args[]){
+		
+		Scanner in = new Scanner(System.in);
+		
+		int Testcase = in.nextInt();
+		int count = 0;
+		int arr[][] = new int[Testcase][3];
+		while ( Testcase > count ){
+			
+			arr[count][0] = count+1;  // 인덱스 설정.
+			arr[count][1] = in.nextInt();  // 사이즈 정하기.
+			if ( arr[count][1] > maxsize ) { maxsize = arr[count][1]; }
+			count++;
+		}
+		
+		DP[1][0] = 1;
+		DP[1][1] = 1;    // 초기화
+		DP[0][1] = 1;
+		
+		cal(1,1);
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	public static void cal(int x,int y){
+		
+		if( x > maxsize || y > maxsize || DP[x][y] == 0 ){ return; }
+		
+		if ( x >= y ){
+			for(int i = 2 ; x*i < maxsize ; i++ ){
+				DP[x*i][y*i] = 0;
+			}
+		}
+		else {
+			for(int i = 2 ; y*i < maxsize ; i++ ){
+				DP[x*i][y*i] = 0;
+			}
+		}
+		
+		cal(x+1,y);
+		cal(x+1,y+1);
+		cal(x,y+1);
+		
+		return;
+	}
+	
+	
+}
