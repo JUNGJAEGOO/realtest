@@ -1,0 +1,34 @@
+package back2294;
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String args[]){
+		Scanner in = new Scanner ( System.in);
+		int n = in.nextInt();
+		int k = in.nextInt();
+		int coin[] = new int[n];
+		int dp[] = new int[k+1];
+		int count[] = new int[k+1];
+		for ( int i = 0 ; i < n ; i++){
+			coin[i] = in.nextInt();
+		}
+		
+		count[0] = 1;
+		
+		
+		for ( int i = 0 ; i < coin.length ; i++){
+			
+			for ( int j = 1 ; j <= k ; j++){
+				if ( j-coin[i]>=0){
+					count[j] = count[j]+count[j-coin[i]];
+				}
+			}
+		}
+		
+		//for ( int i = 0 ; i < coin.length ; i++){
+		//	dp[coin[i]] = 1;
+		//}
+		//dp[j] = Math.min(dp[j],dp[j-coin[i]]+1);
+	}
+}

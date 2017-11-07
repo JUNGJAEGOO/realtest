@@ -1,0 +1,47 @@
+package back14888;
+import java.util.*;
+public class Main {
+	static int maxlength;
+	static int opr[];
+	static String res = "";
+	public static void main(String args[]){
+		
+		Scanner in = new Scanner(System.in);
+		int N = in.nextInt();
+		int arr[] = new int[N];
+		opr = new int[4];
+		for ( int i = 0 ; i < N ; i++){
+			arr[i] = in.nextInt();
+		}
+		for ( int i = 0 ; i < 4 ; i++){
+			opr[i] = in.nextInt();
+			maxlength += opr[i];
+		}
+		
+		String result;
+		
+			for ( int i = 0 ; i < 4 ; i++){
+				if ( opr[i]!=0){
+					DFS(i,0);
+				}
+			}
+			
+		
+	}
+	
+	public static void DFS(int start,int len){
+		opr[start]--;
+		res += Integer.toString(start);
+		System.out.print(start);
+		if ( len+1 == maxlength){
+			System.out.println();
+		}
+		for ( int i = 0 ; i < 4 ; i++){
+			if ( opr[i]!=0){
+			System.out.print(i);
+			DFS(i,len+1);
+			}
+		}
+		opr[start]++;
+	}
+}

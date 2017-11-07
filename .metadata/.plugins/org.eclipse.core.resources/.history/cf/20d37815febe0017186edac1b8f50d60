@@ -1,0 +1,54 @@
+package back1707;
+import java.util.*;
+public class Main {
+	static ArrayList<Integer> adj[];
+	public static void main(String args[]){
+		Scanner in = new Scanner(System.in);
+		int T = in.nextInt();
+		
+		while ( T > 0){
+			
+			int V = in.nextInt();
+			int E = in.nextInt();
+			
+			adj = new ArrayList[V];
+			for ( int i = 0 ; i < V ; i++){
+				adj[i] = new ArrayList<Integer>();
+			}
+			for ( int i = 0 ; i < E ; i++){
+				int x = in.nextInt()-1;
+				int y = in.nextInt()-1;
+				adj[x].add(y);
+				adj[y].add(x);
+			}
+			
+			
+			
+			DFS();
+			
+			T--;
+		}
+	}
+	
+	public static void DFS(){
+		
+		Stack<Integer> st = new Stack<Integer>();
+		st.push();
+		
+		while ( !st.isEmpty() ){
+			int tmp = st.pop();
+			for ( int i = 0 ; i < adj[tmp].size() ; i++ ){
+				
+			}
+		}
+		
+		
+	};
+	
+	public static class data{
+		int color = -1;
+		data(int color){
+			this.color = color;
+		}
+	}
+}

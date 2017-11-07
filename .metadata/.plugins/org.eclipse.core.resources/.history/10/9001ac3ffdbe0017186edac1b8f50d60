@@ -1,0 +1,30 @@
+package back1707;
+import java.util.*;
+public class Main {
+	static ArrayList<Integer> adj[];
+	public static void main(String args[]){
+		Scanner in = new Scanner(System.in);
+		int T = in.nextInt();
+		
+		while ( T > 0){
+			
+			int V = in.nextInt();
+			int E = in.nextInt();
+			
+			adj = new ArrayList[];
+			
+			DFS();
+			
+			T--;
+		}
+	}
+	
+	public static void DFS(){
+		
+		
+		
+		
+		
+	};
+	
+}
