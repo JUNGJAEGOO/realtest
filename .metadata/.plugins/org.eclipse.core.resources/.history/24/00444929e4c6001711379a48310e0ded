@@ -1,0 +1,69 @@
+package back7568;
+import java.util.*;
+import java.io.*;
+public class Main {
+	public static void main(String args[]) throws NumberFormatException, IOException{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int N = Integer.parseInt(br.readLine());
+		int weight[] = new int[N];
+		int height[] = new int[N];
+		int num[] = new int[N];
+		for ( int i = 0 ; i < N ; i++){
+			String tmp = br.readLine();
+			StringTokenizer st = new StringTokenizer(tmp," ");
+			weight[i] = Integer.parseInt(st.nextToken());
+			height[i] = Integer.parseInt(st.nextToken());
+		}
+		int count = N-1;
+		while ( count >= 0 ){
+			int standardW = weight[count];
+			int standardH = height[count];
+			for ( int i = 0 ; i < N ; i++){
+				if ( i == count ){ continue; }
+				if ( standardW > weight[i] && standardH > height[i]){
+					num[count]++;
+				}
+			}
+			count--;
+		}
+		
+		int rank[] = new int[N];
+		for ( int i = 0 ; i < N ; i++){
+			rank[i] = -1;
+		}
+		
+		int nowrank = 1;
+		while ( true ){
+			boolean go = false;
+			int same = 0;
+			int max = -1;
+			int maxindex = -1;
+			for ( int i = 0 ; i< N ; i++){
+				if ( rank[i] == -1 && num[i] > max){
+				max = num[i];
+				maxindex = i;
+				}
+			}
+			for ( int i = 0 ; i < N ; i++){
+				if ( num[i] == max){
+					rank[i] = nowrank;
+					same++;
+				}
+			}
+			nowrank += same;
+			
+			for ( int i = 0 ; i < N ; i++){
+				if ( rank[i] == -1){
+					go = true;
+				}
+			}
+			if ( go == false){
+				break;
+			}
+		}
+		
+		for ( int i = 0 ; i < N ; i++){
+			System.out.print(rank[i]+" ");
+		}
+	}
+}
