@@ -1,0 +1,56 @@
+package back1620;
+import java.util.*;
+import java.io.*;
+public class Main {
+	public static void main (String args[]) throws IOException{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String MandN = br.readLine();
+		StringTokenizer st;
+		st = new StringTokenizer(MandN," ");
+		int M = Integer.parseInt(st.nextToken());
+		int N = Integer.parseInt(st.nextToken());
+		HashMap<Integer,String > hash = new HashMap<>();
+		
+		for ( int i = 0 ; i < M ; i++){
+			hash.put(i+1,br.readLine());
+		}
+		
+		while ( N>0){
+			String tmp = br.readLine();
+			
+			
+			if ( isnum(tmp)){
+				int StoTMP = Integer.parseInt(tmp);
+				System.out.println(hash.get(StoTMP));
+			}else{
+	
+				System.out.println(getKey(hash,tmp));
+
+			}
+			N--;
+		}
+	}
+	
+	public static boolean isnum(String tmp){
+		try {
+			Integer.parseInt(tmp);
+			return true;
+		}catch(Exception e){
+			return false;
+		}
+		
+	}
+	public static Object getKey(HashMap<Integer, String> m, Object value) 
+	{ 
+		for(Object o: m.keySet()) 
+		{ 
+			if(m.get(o).equals(value)) 
+			{ 
+				return o; 
+				} 
+			} 
+		return null; 
+	}
+
+
+}

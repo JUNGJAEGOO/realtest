@@ -1,0 +1,35 @@
+package back1717;
+import java.util.*;
+public class Main {
+	public static void main(String args[]){
+		Scanner in = new Scanner ( System.in);
+		int n = in.nextInt();
+		int m = in.nextInt();
+		HashSet<Integer> hash[] = new HashSet[n+1];
+		for ( int i = 0 ; i <= n ; i++){
+			hash[i] = new HashSet<>(); 
+			hash[i].add(i);
+		}
+		for ( int i = 0 ; i < m ; i++){
+			int opr = in.nextInt();
+			int from = in.nextInt();
+			int to = in.nextInt();
+			if ( opr == 0 ){
+				hash[from].addAll(hash[to]);
+				hash[to].addAll(hash[from]);
+			}else{
+				
+			}
+			
+			Iterator<Integer> str = hash[from].iterator();
+			Iterator<Integer> str2 = hash[to].iterator();
+			
+			while ( str.hasNext()){
+				System.out.println(str.next());
+			}
+			while ( str2.hasNext()){
+				System.out.println(str2.next());
+			}
+		}
+	}
+}

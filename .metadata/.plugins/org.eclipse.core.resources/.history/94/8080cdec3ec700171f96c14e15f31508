@@ -1,0 +1,35 @@
+package back1012;
+
+import java.util.*;
+import java.io.*;
+
+
+public class Main {
+	static int mat[][];
+	static boolean visit[][];
+	public static void main (String args[])throws Exception{
+		BufferedReader br = new BufferedReader ( new InputStreamReader(System.in));
+		int T = Integer.parseInt(br.readLine());
+		StringTokenizer st;
+		String input = br.readLine();
+		st = new StringTokenizer(input," ");
+		int M = Integer.parseInt(st.nextToken());
+		int N = Integer.parseInt(st.nextToken());
+		int K = Integer.parseInt(st.nextToken());
+		mat = new int[M+2][N+2];
+		visit = new boolean[M+2][N+2];
+		for ( int i = 1 ; i <= M ; i++){
+			for ( int j = 1 ; j <= N ; j++){
+				mat[i][j] = 0;
+			}
+		}
+		for ( int i = 0 ; i < K ; i++){
+			int x = Integer.parseInt(br.readLine());
+			int y = Integer.parseInt(br.readLine());
+			mat[x+1][y+1] = 1;
+		}
+		
+	}
+}
+ 
+

@@ -1,0 +1,28 @@
+package back1012;
+
+import java.util.*;
+import java.io.*;
+
+
+public class Main {
+	public static void main (String args[])throws Exception{
+		BufferedReader br = new BufferedReader ( new InputStreamReader(System.in));
+		int T = Integer.parseInt(br.readLine());
+		StringTokenizer st;
+		String input = br.readLine();
+		st = new StringTokenizer(input," ");
+		int M = Integer.parseInt(st.nextToken());
+		int N = Integer.parseInt(st.nextToken());
+		int K = Integer.parseInt(st.nextToken());
+		int mat[][] = new int[M+2][N+2];
+		
+		for ( int i = 0 ; i < K ; i++){
+			int x = Integer.parseInt(br.readLine());
+			int y = Integer.parseInt(br.readLine());
+			mat[x+1][y+1] = 1;
+		}
+		
+	}
+}
+ 
+
