@@ -1,0 +1,58 @@
+package back1261;
+import java.util.*;
+import java.io.*;
+public class Main {
+	static int N,M;
+	public static void main(String args[]) throws Exception{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String init = br.readLine();
+		StringTokenizer st = new StringTokenizer(init," ");
+		N = Integer.parseInt(st.nextToken());
+		M = Integer.parseInt(st.nextToken());
+		int mat[][] = new int[N+2][M+2];
+		for ( int i = 1 ; i <= N ; i++){
+			String input = br.readLine();
+			char tmp[] = input.toCharArray();
+			for (int j = 1 ; j <= M ; j++){
+				mat[i][j] = tmp[j-1];
+			}
+		}
+		
+		
+	}
+	
+	public static void Diik(int X,int Y){
+		Queue<data> pq = new PriorityQueue<>();
+		pq.add(new data(X,Y,0));
+		while ( !pq.isEmpty() ){
+			data tmp = pq.poll();
+			int x = tmp.x;
+			int y = tmp.y;
+			int cost = tmp.cost;
+			
+			if ( x == M && y == N ){
+				break;
+			}
+			
+		}
+	}
+	
+	public static class data implements Comparable<data>{
+		int x,y,cost;
+		data(int x,int y,int cost){
+			this.x=x; this.y=y; this.cost=cost;
+		}
+		
+		@Override
+		public int compareTo(data o){
+			if ( o.cost > this.cost){
+				return -1;
+			}else{
+				return 1;
+			}
+			
+		}
+	}
+	
+
+}

@@ -1,0 +1,13 @@
+package back1261;
+import java.util.*;
+import java.io.*;
+public class Main {
+	public static void main(String args[]) throws Exception{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String init = br.readLine();
+		StringTokenizer st = new StringTokenizer(init," ");
+		int N = Integer.parseInt(st.nextToken());
+		int M = Integer.parseInt(st.nextToken());
+	
+	}
+}

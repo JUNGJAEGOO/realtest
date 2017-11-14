@@ -1,0 +1,32 @@
+package back1261;
+import java.util.*;
+import java.io.*;
+public class Main {
+	public static void main(String args[]) throws Exception{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String init = br.readLine();
+		StringTokenizer st = new StringTokenizer(init," ");
+		int N = Integer.parseInt(st.nextToken());
+		int M = Integer.parseInt(st.nextToken());
+		int mat[][] = new int[N+2][M+2];
+		for ( int i = 1 ; i <= N ; i++){
+			String input = br.readLine();
+			char tmp[] = input.toCharArray();
+			for (int j = 1 ; j <= M ; j++){
+				mat[i][j] = tmp[j-1];
+			}
+		}
+		
+		
+	}
+	
+	public static void Diik(int x,int y){
+		Queue<Node> pq = new PriorityQueue<>();
+	}
+	public static class data{
+		int x,y,cost;
+		data(int x,int y,int cost){
+			this.x=x; this.y=y; this.cost=cost;
+		}
+	}
+}
